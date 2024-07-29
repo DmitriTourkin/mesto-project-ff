@@ -14,7 +14,8 @@ const createCard = (cardObj) => {
   cardImage.src = cardObj.link;
 
   cardContainer.append(cardImage);
-  cardDescriptionContainer.append(cardTitle);
+  cardContainer.append(deleteCardButton);
+  cardDescriptionContainer.prepend(cardTitle);
   cardContainer.append(cardDescriptionContainer);
 
   return cardContainer;
