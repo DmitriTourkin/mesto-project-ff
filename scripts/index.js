@@ -1,5 +1,5 @@
 const cardTemplate = document.querySelector('#card-template').content;
-const placesContainer = document.querySelector('.places__list')
+const placesContainer = document.querySelector('.places__list');
 
 const createCard = cardObj => {
   const cardContainer = cardTemplate.querySelector('.places__item').cloneNode(true);
