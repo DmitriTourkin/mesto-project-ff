@@ -50,4 +50,4 @@ modalElementCard.addEventListener('submit', handleCardSubmit);
 
 renderCards(initialCards);
 
-export {cardTemplate, placesContainer, formProfileElement, modalElementCard, modalElementProfile,shouldSave};
+export {cardTemplate, placesContainer, formProfileElement, modalElementCard, modalElementProfile };
