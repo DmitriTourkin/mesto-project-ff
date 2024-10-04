@@ -1,6 +1,6 @@
 import './pages/index.css';
 import { initialCards } from './scripts/cards';
-import { closeModal, handleEscKey, handleResetUnsavedForm, openModal } from './scripts/modal.js';
+import { handleEscKey, handleResetUnsavedForm, openModal } from './scripts/modal.js';
 import { setProfileData, handleFormSubmit, handleCardSubmit } from './scripts/forms.js';
 import { renderCards } from './scripts/card.js';
 
