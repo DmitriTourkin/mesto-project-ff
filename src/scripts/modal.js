@@ -1,16 +1,14 @@
-function openModal(modalElement) {
+const openModal = modalElement => {
   modalElement.classList.add('popup_is-opened');
   modalElement.addEventListener('keydown', handleEscKey);
-  const closeButton = modalElement.querySelector('.popup__close');
-  closeButton.focus();
 }
 
-function closeModal(modalElement) {
+const closeModal = modalElement => {
   modalElement.classList.remove('popup_is-opened');
   modalElement.removeEventListener('keydown', handleEscKey);
 }
 
-function handleEscKey(evt) {
+const handleEscKey = evt => {
     if (evt.key === 'Escape') {
       const openModal = document.querySelector('.popup_is-opened');
       if (openModal) { 
@@ -19,4 +17,4 @@ function handleEscKey(evt) {
     }
 }
 
-export { openModal, closeModal }
+export { openModal, closeModal, handleEscKey };
