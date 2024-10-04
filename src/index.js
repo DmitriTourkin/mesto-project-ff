@@ -1,6 +1,6 @@
 import './pages/index.css';
 import { initialCards } from './scripts/cards';
-import { closeModal, handleEscKey, openModal } from './scripts/modal.js';
+import { closeModal, handleEscKey, handleHoverClick, handleResetUnsavedForm, openModal } from './scripts/modal.js';
 import { setProfileData, resetProfileForm, handleFormSubmit, handleCardSubmit } from './scripts/forms.js';
 import { renderCards } from './scripts/card.js';
 
@@ -27,19 +27,16 @@ buttonEditProfile.addEventListener('click', () => {
 });
 
 modalsCloseButtons.forEach(button => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (evt) => {
     const modalElement = button.closest('.popup');
     closeModal(modalElement);
-    resetProfileForm(); 
+    handleResetUnsavedForm(evt);
   });
 });
 
 modals.forEach(modal => {
-  modal.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('popup')) {
-      closeModal(modal);
-    }
-  })
+  modal.addEventListener('mousedown', handleResetUnsavedForm);
+  modal.addEventListener('keydown', handleResetUnsavedForm);
 });
 
 formProfileElement.addEventListener('submit', handleFormSubmit); 

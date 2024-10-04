@@ -33,17 +33,6 @@ const setProfileData = () => {
   jobInput.value = profileDescription;
 }
 
-const resetProfileForm = () => {
-  const profileTitle = document.querySelector('.profile__title').textContent;
-  const profileDescription = document.querySelector('.profile__description').textContent;
-
-  const nameInput = formProfileElement.elements.name;
-  const jobInput = formProfileElement.elements.description;
-
-  nameInput.value = profileTitle;
-  jobInput.value = profileDescription;
-}
-
 const handleCardSubmit = evt => {
   evt.preventDefault();
 
@@ -64,5 +53,5 @@ const handleCardSubmit = evt => {
   closeModal(modalElementCard);
 }
 
-export { setProfileData, resetProfileForm, handleFormSubmit, handleCardSubmit };
+export { setProfileData, handleFormSubmit, handleCardSubmit };
 
