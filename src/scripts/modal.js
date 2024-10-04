@@ -26,7 +26,6 @@ const handleResetUnsavedForm = (evt) => {
     } else {
       inputs.forEach(inputField => inputField.value = '');
     }
-    console.log('openModal:', openModal);
     closeModal(openModal);
   }
 }
