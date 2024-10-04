@@ -57,5 +57,5 @@ const renderCards = cardsArray => {
   }
 )};
 
-export { renderCards, createCard, deleteElement, handleLike, handleImageClick};
+export { renderCards, createCard, deleteElement, handleLike, handleImageClick };
 

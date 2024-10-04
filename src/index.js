@@ -43,11 +43,9 @@ modals.forEach(modal => {
 });
 
 formProfileElement.addEventListener('submit', handleFormSubmit); 
-
-setProfileData();
-
 modalElementCard.addEventListener('submit', handleCardSubmit);
 
+setProfileData();
 renderCards(initialCards);
 
 export {cardTemplate, placesContainer, formProfileElement, modalElementCard, modalElementProfile };

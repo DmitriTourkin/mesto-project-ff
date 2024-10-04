@@ -64,5 +64,5 @@ const handleCardSubmit = evt => {
   closeModal(modalElementCard);
 }
 
-export { setProfileData, resetProfileForm, handleFormSubmit, handleCardSubmit}
+export { setProfileData, resetProfileForm, handleFormSubmit, handleCardSubmit };
 
