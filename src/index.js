@@ -1,7 +1,7 @@
 import './pages/index.css';
 import { initialCards } from './scripts/cards';
-import { closeModal, handleEscKey, handleHoverClick, handleResetUnsavedForm, openModal } from './scripts/modal.js';
-import { setProfileData, resetProfileForm, handleFormSubmit, handleCardSubmit } from './scripts/forms.js';
+import { closeModal, handleEscKey, handleResetUnsavedForm, openModal } from './scripts/modal.js';
+import { setProfileData, handleFormSubmit, handleCardSubmit } from './scripts/forms.js';
 import { renderCards } from './scripts/card.js';
 
 const modals = document.querySelectorAll('.popup')
@@ -36,7 +36,6 @@ modalsCloseButtons.forEach(button => {
 
 modals.forEach(modal => {
   modal.addEventListener('mousedown', handleResetUnsavedForm);
-  modal.addEventListener('keydown', handleResetUnsavedForm);
 });
 
 formProfileElement.addEventListener('submit', handleFormSubmit); 

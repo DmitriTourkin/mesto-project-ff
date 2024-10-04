@@ -1,5 +1,3 @@
-import { formProfileElement } from "..";
-
 const openModal = modalElement => {
   modalElement.classList.add('popup_is-opened');
   modalElement.addEventListener('keydown', handleEscKey);
@@ -10,18 +8,8 @@ const closeModal = modalElement => {
   modalElement.removeEventListener('keydown', handleEscKey);
 }
 
-const handleEscKey = evt => {
-  if (evt.key === 'Escape') {
-    const openModal = document.querySelector('.popup_is-opened');
-    handleResetUnsavedForm(evt);
-    if (openModal) { 
-      closeModal(openModal);
-    }
-  }
-}
-
 const handleResetUnsavedForm = (evt) => {
-  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close') || evt.key === 'Enter') {
+  if (evt.key === 'Escape' || evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close') ) {
     const openModal = evt.target.closest('.popup_is-opened');
     const inputs = Array.from(openModal.querySelectorAll('.popup__input'));
 
@@ -36,10 +24,20 @@ const handleResetUnsavedForm = (evt) => {
       nameInput.value = profileTitle;
       jobInput.value = profileDescription;
     } else {
-      inputs.forEach(inputField => inputField.value = "");
+      inputs.forEach(inputField => inputField.value = '');
     }
     console.log('openModal:', openModal);
     closeModal(openModal);
+  }
+}
+
+const handleEscKey = evt => {
+  if (evt.key === 'Escape') {
+    const openModal = document.querySelector('.popup_is-opened');
+    if (openModal) { 
+      handleResetUnsavedForm(evt);
+      closeModal(openModal);
+    }
   }
 }
 
