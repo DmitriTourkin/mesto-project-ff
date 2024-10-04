@@ -11,12 +11,12 @@ const modalElementProfile = document.querySelector('.popup_type_edit');
 const buttonAddCard = document.querySelector('.profile__add-button');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 
-let shouldSave = true;
-
 const formProfileElement = document.forms["edit-profile"];
 
 const cardTemplate = document.querySelector('#card-template').content;
 const placesContainer = document.querySelector('.places__list');
+
+document.addEventListener('keydown', handleEscKey);
 
 buttonAddCard.addEventListener('click', () => {
   openModal(modalElementCard);
@@ -47,8 +47,6 @@ formProfileElement.addEventListener('submit', handleFormSubmit);
 setProfileData();
 
 modalElementCard.addEventListener('submit', handleCardSubmit);
-
-document.addEventListener('keydown', handleEscKey);
 
 renderCards(initialCards);
 
