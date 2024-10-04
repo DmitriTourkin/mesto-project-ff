@@ -22,7 +22,6 @@ const handleOverlayClick = evt => {
 const handleCloseButtonClick = evt => {
   if (evt.target.classList.contains('popup__close')) {
     const openModal = evt.target.closest('.popup_is-opened');
-    console.log('lol', openModal);
     handleResetUnsavedForm(evt, openModal);
   }
 }
