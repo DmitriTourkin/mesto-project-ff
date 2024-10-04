@@ -54,4 +54,3 @@ const handleCardSubmit = evt => {
 }
 
 export { setProfileData, handleFormSubmit, handleCardSubmit };
-

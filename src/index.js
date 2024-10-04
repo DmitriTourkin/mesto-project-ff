@@ -5,7 +5,6 @@ import { setProfileData, handleFormSubmit, handleCardSubmit } from './scripts/fo
 import { renderCards } from './scripts/card.js';
 
 const modals = document.querySelectorAll('.popup')
-const modalsCloseButtons = document.querySelectorAll('.popup__close');
 const modalElementCard = document.querySelector('.popup_type_new-card');
 const modalElementProfile = document.querySelector('.popup_type_edit');
 const buttonAddCard = document.querySelector('.profile__add-button');
@@ -24,14 +23,6 @@ buttonAddCard.addEventListener('click', () => {
 
 buttonEditProfile.addEventListener('click', () => {
   openModal(modalElementProfile);
-});
-
-modalsCloseButtons.forEach(button => {
-  button.addEventListener('click', (evt) => {
-    const modalElement = button.closest('.popup');
-    closeModal(modalElement);
-    handleResetUnsavedForm(evt);
-  });
 });
 
 modals.forEach(modal => {

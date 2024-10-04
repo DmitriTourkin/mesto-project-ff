@@ -1,16 +1,34 @@
 const openModal = modalElement => {
   modalElement.classList.add('popup_is-opened');
-  modalElement.addEventListener('keydown', handleEscKey);
+  document.addEventListener('keydown', handleEscKey);
+  modalElement.addEventListener('click', handleCloseButtonClick);
+  modalElement.addEventListener('click', handleOverlayClick);
 }
 
 const closeModal = modalElement => {
   modalElement.classList.remove('popup_is-opened');
-  modalElement.removeEventListener('keydown', handleEscKey);
+  document.removeEventListener('keydown', handleEscKey);
+  modalElement.removeEventListener('click', handleCloseButtonClick);
+  modalElement.removeEventListener('click', handleOverlayClick); 
 }
 
-const handleResetUnsavedForm = (evt) => {
-  if (evt.key === 'Escape' || evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close') ) {
+const handleOverlayClick = evt => {
+  if (evt.target.classList.contains('popup')) {
+    const openModal = evt.target;
+    handleResetUnsavedForm(evt, openModal);
+  }
+}
+
+const handleCloseButtonClick = evt => {
+  if (evt.target.classList.contains('popup__close')) {
     const openModal = evt.target.closest('.popup_is-opened');
+    console.log('lol', openModal);
+    handleResetUnsavedForm(evt, openModal);
+  }
+}
+
+const handleResetUnsavedForm = (evt, openModal) => {
+  if (openModal && (evt.target.classList.contains('popup__close') || evt.target.classList.contains('popup') || evt.key === 'Escape')) {
     const inputs = Array.from(openModal.querySelectorAll('.popup__input'));
 
     if (openModal.classList.contains('popup_type_edit')) {
@@ -24,7 +42,7 @@ const handleResetUnsavedForm = (evt) => {
       nameInput.value = profileTitle;
       jobInput.value = profileDescription;
     } else {
-      inputs.forEach(inputField => inputField.value = '');
+      inputs.forEach(inputField => inputField.value = "");
     }
     closeModal(openModal);
   }
@@ -33,9 +51,8 @@ const handleResetUnsavedForm = (evt) => {
 const handleEscKey = evt => {
   if (evt.key === 'Escape') {
     const openModal = document.querySelector('.popup_is-opened');
-    if (openModal) { 
-      handleResetUnsavedForm(evt);
-      closeModal(openModal);
+    if (openModal) {
+      handleResetUnsavedForm(evt, openModal);
     }
   }
 }
