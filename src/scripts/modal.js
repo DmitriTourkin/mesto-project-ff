@@ -50,7 +50,9 @@ const handleEscKey = evt => {
   if (evt.key === 'Escape') {
     const openModal = document.querySelector('.popup_is-opened');
     if (openModal) {
-      setProfileData();
+      if (openModal.classList.contains('popup_type_edit')) {
+        setProfileData();
+      }
       closeModal(openModal);
     }
   }
