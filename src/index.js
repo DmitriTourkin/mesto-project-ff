@@ -1,6 +1,6 @@
 import './pages/index.css';
 import { initialCards } from './scripts/cards';
-import { handleEscKey, openModal } from './scripts/modal.js';
+import { openModal, closeModal} from './scripts/modal.js';
 import { createCard, deleteElement, handleLike} from './scripts/card.js';
 
 const modals = document.querySelectorAll('.popup');
@@ -17,8 +17,8 @@ const imageElement = cardPopUpElement.querySelector('.popup__image');
 
 const formProfileElement = document.forms["edit-profile"];
 
-const profileTitle = document.querySelector('.profile__title').textContent;
-const profileDescription = document.querySelector('.profile__description').textContent;
+const profileTitle = document.querySelector('.profile__title');
+const profileDescription = document.querySelector('.profile__description');
 
 const nameInput = formProfileElement.elements.name;
 const jobInput = formProfileElement.elements.description;
@@ -51,6 +51,9 @@ const handleImageClick = evt => {
 
 const submitEditProfileForm = evt => {
   evt.preventDefault();   
+
+  const modalElementProfile = document.querySelector('.popup_type_edit');
+
   const name = nameInput.value;
   const job = jobInput.value;
 
