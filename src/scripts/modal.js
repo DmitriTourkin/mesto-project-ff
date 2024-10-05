@@ -13,9 +13,6 @@ const setProfileData = () => {
 
 const openModal = modalElement => {
   modalElement.classList.add('popup_is-opened');
-  if (modalElement.classList.contains('popup_type_edit')) {
-    setProfileData();  
-  }
   document.addEventListener('keydown', handleEscKey);
   modalElement.addEventListener('click', handleCloseButtonClick);
   modalElement.addEventListener('click', handleOverlayClick);
@@ -31,9 +28,6 @@ const closeModal = modalElement => {
 const handleOverlayClick = (evt) => {
   if (evt.target.classList.contains('popup')) {
     const openModal = evt.target;
-    if (openModal.classList.contains('popup_type_edit')) {
-      setProfileData();
-    }
     closeModal(openModal);
   }
 }
@@ -41,7 +35,6 @@ const handleOverlayClick = (evt) => {
 const handleCloseButtonClick = evt => {
   if (evt.target.classList.contains('popup__close')) {
     const openModal = evt.target.closest('.popup_is-opened');
-    setProfileData();
     closeModal(openModal);
   }
 }
@@ -50,9 +43,6 @@ const handleEscKey = evt => {
   if (evt.key === 'Escape') {
     const openModal = document.querySelector('.popup_is-opened');
     if (openModal) {
-      if (openModal.classList.contains('popup_type_edit')) {
-        setProfileData();
-      }
       closeModal(openModal);
     }
   }
