@@ -1,16 +1,3 @@
-const setProfileData = () => {
-  const formProfileElement = document.forms["edit-profile"];
-
-  const profileTitle = document.querySelector('.profile__title').textContent;
-  const profileDescription = document.querySelector('.profile__description').textContent;
-
-  const nameInput = formProfileElement.elements.name;
-  const jobInput = formProfileElement.elements.description;
-  
-  nameInput.value = profileTitle;
-  jobInput.value = profileDescription;
-}
-
 const openModal = modalElement => {
   modalElement.classList.add('popup_is-opened');
   document.addEventListener('keydown', handleEscKey);

@@ -33,6 +33,11 @@ const renderCards = cardsArray => {
   }
 )};
 
+const setProfileData = () => {  
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileDescription.textContent;
+}
+
 const handleImageClick = evt => {
   if (evt.target.classList.contains('card__image')) {
     const card = evt.target.closest('.card');
@@ -83,6 +88,7 @@ buttonAddCard.addEventListener('click', () => {
 });
 
 buttonEditProfile.addEventListener('click', () => {
+  setProfileData();
   openModal(modalElementProfile);
 });
 
