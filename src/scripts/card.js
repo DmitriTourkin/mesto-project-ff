@@ -1,8 +1,11 @@
-import { openModal } from "./modal";
-import { placesContainer, cardTemplate } from "..";
+const getCardTemplate = () => {
+  const cardTemplate = document.querySelector('#card-template').content;
+  const card = cardTemplate.querySelector('.places__item').cloneNode(true);
+  return card;
+}
 
 const createCard = (cardObj, deleteElement, handleLikeFn, handleImageClickFn) => {
-  const card = cardTemplate.querySelector('.places__item').cloneNode(true);
+  const card = getCardTemplate();
   const cardTitle = card.querySelector('.card__title');
   const cardImage = card.querySelector('.card__image');
   const likeButton = card.querySelector('.card__like-button');
@@ -30,32 +33,5 @@ const handleLike = evt => {
   }
 }
 
-const handleImageClick = evt => {
-  if (evt.target.classList.contains('card__image')) {
-    const card = evt.target.closest('.card');
-
-    const cardPopUpElement = document.querySelector('.popup_type_image');
-    const titleElement = cardPopUpElement.querySelector('.popup__caption');
-    const imageElement = cardPopUpElement.querySelector('.popup__image'); 
-
-    const cardTitle = card.querySelector('.card__title').textContent;
-    const cardImageUrl = card.querySelector('.card__image').src;
-    const cardImageAlt = card.querySelector('.card__image').alt;
-
-    titleElement.textContent = cardTitle;
-    imageElement.src = cardImageUrl;
-    imageElement.alt = cardImageAlt;
-
-    openModal(cardPopUpElement);
-  }
-}
-
-const renderCards = cardsArray => {
-  cardsArray.forEach(cardItem => {
-    const cardElement = createCard(cardItem, deleteElement, handleLike, handleImageClick);
-    placesContainer.append(cardElement);
-  }
-)};
-
-export { renderCards, createCard, deleteElement, handleLike, handleImageClick };
+export { createCard, deleteElement, handleLike};
 
