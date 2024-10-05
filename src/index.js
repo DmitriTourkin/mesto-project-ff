@@ -3,7 +3,6 @@ import { initialCards } from './scripts/cards';
 import { openModal, closeModal} from './scripts/modal.js';
 import { createCard, deleteElement, handleLike} from './scripts/card.js';
 
-const modals = document.querySelectorAll('.popup');
 const modalElementCard = document.querySelector('.popup_type_new-card');
 const modalElementProfile = document.querySelector('.popup_type_edit');
 const buttonAddCard = document.querySelector('.profile__add-button');
